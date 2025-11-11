@@ -76,7 +76,7 @@ $ devcheck
 
 We're looking for early teams who want to eliminate “works on my machine” once and for all.
 
-To get an invite, please send an email to **[Your-Personal-Email@gmail.com]** with the answers to these 3 questions:
+To get an invite, please send an email to **[ishwarchand2005@gmail.com]** with the answers to these 3 questions:
 
 1.  **What is your work email?**
 2.  **How many developers are on your team?**
