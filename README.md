@@ -1,68 +1,76 @@
+You are 100% right.
+
+The current README is a **"Landing Page / Waitlist."**
+But you just launched a **"Real Open Source Project."**
+
+If a developer clicks your link *now*, they don't want to "email you for an invite." They want to **click "Download" and try it.** Keeping the email gate up now would actually hurt your conversion because you've already built the thing.
+
+Here is the **Updated, 10/10 "Product" README.**
+
+It keeps all the great "sales copy" (the problem, the quotes) but swaps the "Join Beta" section for a **"Quick Start"** section.
+
+### Copy-Paste this into your `README.md`
+
+````markdown
 # "Of course they'll be stuck."
 
 You already know this story — the new dev joins, the README is outdated, and your senior loses half a day fixing Node versions and missing .envs.
 
 `devcheck` is the one-command sanity check that fixes all that.
 
----
-
-## The "jugaad" is the bug.
-
-Your onboarding isn't "a process." It's a collection of broken "jugaad" that everyone is too busy to fix.
-
-### The Messy README
-The doc that "was outdated the day after the last intern left." Every setup guide becomes fiction in a month.
-> “Usually it’s the messy readme or the dev losing 2-3hrs or both.”
->
-> ~ Senior Dev, r/developersIndia
-
-### The Senior Hand-Holding
-The "fix" where you **"assign one of your senior engineers for a couple of weeks"** just to get one person's environment running. Your most expensive devs become "human debuggers" for missing .env keys.
-
-### The Docker 'Fix'
-The "gold standard" that still leads to new headaches: container setup, permissions, and machine-specific quirks.
-> “I tried this but guess what now I spend hours trying to setup docker on their machine”
->
-> ~ Backend Dev, r/developersIndia
-
-### The Blame Culture
-The "works on my machine" reply that kills morale and wastes a day. The back-and-forth between the SRE telling the fresher to "just download it" and the fresher who can't get it running.
+**Current Status:** v0.1.0 (Public Beta)
 
 ---
 
-## Stop wasting smart time on dumb problems.
+## ⚡ Quick Start
 
-`devcheck` doesn’t teach juniors your stack — it ensures they can **actually run it.**
+### Option 1: The "Zero-Dependency" Way (Recommended for Teams)
+No `pip`, `npm`, or `go` required.
 
-It automates the **"Dumb" Mechanical problem** (versions, `.env` keys, DB pings) so your senior devs can *finally* spend 100% of their time on the **"Smart" Cognitive problem** (KT, bonding, code reviews).
+1.  **Download** the binary for your OS from the [Releases Page](../../releases).
+2.  **Commit it** to your project (e.g., inside a `./tools` folder).
+3.  **Run it:**
+    ```bash
+    ./tools/devcheck
+    ```
 
-### How It Works
-
-This isn't AI. It's a "dumb" script, inspired by tools like `ruff.toml`.
-
-**1. Define a `devcheck.toml` in your repo:**
-```toml
-# devcheck.toml
-[versions]
-node = "18.x"
-python = "3.10"
-
-[env]
-keys = ["DATABASE_URL", "API_KEY"]
-
-[connections]
-db = "ping $DATABASE_URL"
+### Option 2: The Go Developer Way
+If you already have Go installed:
+```bash
+go install [github.com/ishwar170695/devcheck-idea@latest](https://github.com/ishwar170695/devcheck-idea@latest)
+devcheck
 ````
 
-**2. The new hire runs one command:**
+-----
+
+## 🛠 Configuration
+
+Create a `devcheck.toml` file in the root of your project. Think of this like `ruff.toml`, but for your environment.
+
+```toml
+# devcheck.toml
+
+[versions]
+# Checks output of "node -v", "python --version", etc.
+node = "18.x"
+python = "3.10"
+docker = "24."
+
+[env]
+# Checks if these variables exist in the current session
+keys = ["DATABASE_URL", "API_KEY", "STRIPE_SECRET"]
+
+[connections]
+# Runs any shell command. Exit code 0 = PASS.
+# Useful for checking DB connectivity or Docker health.
+db_ping = "ping -c 1 $DATABASE_URL"
+```
+
+**The Result:**
 
 ```bash
 $ devcheck
-```
 
-**3. They get an instant, objective report:**
-
-```bash
 [NODE]   v18.1.0 ... PASSED
 [ENV]    API_KEY ... FAILED
 [DB]     Ping...   ... FAILED
@@ -72,17 +80,39 @@ $ devcheck
 
 -----
 
-## Join the Private Beta
+## 🧠 Why? (The "Jugaad" is the Bug)
 
-We're looking for early teams who want to eliminate “works on my machine” once and for all.
+Your onboarding isn't "a process." It's a collection of broken "jugaad" that everyone is too busy to fix.
 
-To get an invite, please send an email to **[ishwarchand2005@gmail.com]** with the answers to these 3 questions:
+### 1\. The Messy README
 
-1.  **What is your work email?**
-2.  **How many developers are on your team?**
-3.  **What is the \#1 "dumb" setup bug that *still* wastes your team's time?**
+The doc that "was outdated the day after the last intern left." Every setup guide becomes fiction in a month.
 
-*(This helps us prioritize real teams. We'll reply with the 2-min demo and a beta invite.)*
+> “Usually it’s the messy readme or the dev losing 2-3hrs or both.”
+> \~ Senior Dev, r/developersIndia
+
+### 2\. The Senior Hand-Holding
+
+The "fix" where you **"assign one of your senior engineers for a couple of weeks"** just to get one person's environment running.
+
+### 3\. The Docker 'Fix'
+
+The "gold standard" that still leads to new headaches.
+
+> “I tried this but guess what now I spend hours trying to setup docker on their machine”
+> \~ Backend Dev, r/developersIndia
+
+### 4\. The Blame Culture
+
+The "works on my machine" reply that kills morale. `devcheck` is the **Objective Referee** that proves it's a missing config, not a "bad developer."
+
+-----
+
+## 🤝 Contributing & Feedback
+
+This is a "dumb" tool by design. It doesn't try to be AI. It just tries to be the "Step 0" that runs before everything else.
+
+If you find a bug or have a feature request, please [Open an Issue](https://github.com/ishwar170695/devcheck-idea/issues) or [DM me on Reddit](https://www.reddit.com/user/byte4justice).
 
 ```
 ```
