@@ -1,6 +1,3 @@
-Here is the formatted `README.md` file based on the text you provided. You can copy and paste this directly into your GitHub repository.
-
-````markdown
 # "Of course they'll be stuck."
 
 You already know this story — the new dev joins, the README is outdated, and your senior loses half a day fixing Node versions and missing .envs.
