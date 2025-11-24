@@ -1,0 +1,18 @@
+[versions]
+node = "18.x"
+python = "3.10"
+
+[env]
+keys = ["DATABASE_URL", "API_KEY"]
+
+[connections]
+db = "ping google.com"
+[versions]
+node = "20.16.0"
+python = "3.12.4"
+
+[env]
+keys = ["DATABASE_URL", "API_KEY"]
+
+[connections]
+db = "ping $DATABASE_URL"
