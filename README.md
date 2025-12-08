@@ -6,6 +6,10 @@ You already know this story — the new dev joins, the README is outdated, and y
 
 **Current Status:** v0.1.0 (Public Beta)
 
+
+https://github.com/user-attachments/assets/6a791de5-6b5b-4fa3-afcf-a506391f073a
+
+
 ---
 
 ## ⚡ Quick Start
